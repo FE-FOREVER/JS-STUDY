@@ -11,12 +11,10 @@
     2. 인스턴스 초기화
     3. 인스턴스 반환
 - **내부 메서드 `[[Call]]`과 `[[Construct]]`**
-
-  ![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6ed1bb57-6799-4eb4-9443-b0ae6a81c22e/28226e58-846f-4fb9-a610-5c065dd871a9/image.png)
-
     - 함수가 일반 함수로서 호출되면 함수 객체의 내부 메서드 `[[Call]]`이 호출되고 new 연산자와 함께 생성자 함수로서 호출되면 내부 메서드 `[[Construct]]`가 호출됨
     - 함수 선언문과 표현식으로 정의된 함수만이 constructor이고 ES6의 화살표 함수와 메서드 축약 표현으로 정의된 함수는 non-constructor
-        - 생성자 함수로서 호출될 것을 기대하고 정의하지 않은 일반 함수(callable이면서 constructor)에 new 연산자를 붙여 호출하면 생성자 함수처럼 동작 가능
+    - 생성자 함수로서 호출될 것을 기대하고 정의하지 않은 일반 함수(callable이면서 constructor)에 new 연산자를 붙여 호출하면 생성자 함수처럼 동작 가능
+      ![image](https://github.com/user-attachments/assets/b50a4d49-33e3-40e9-9f1f-2beccb569a00)
 - **new.target**
     - 생성자 함수가 new 연산자 없이 호출되는 것을 방지하기 위해 ES6에서는 new.target을 지원
 
