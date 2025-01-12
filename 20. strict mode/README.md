@@ -16,8 +16,8 @@
 
 ## 짚고 넘어가기
 
-- **20.5.2** - 엄격 모드에서 `delete` 연산은 왜 에러가 발생할까?
+- [**20.5.2**](https://github.com/FE-FOREVER/JS-STUDY/blob/main/20.%20strict%20mode/%EC%A1%B0%EB%AF%BC%EC%A7%80.md#2052-%EB%B3%80%EC%88%98-%ED%95%A8%EC%88%98-%EB%A7%A4%EA%B0%9C%EB%B3%80%EC%88%98%EC%9D%98-%EC%82%AD%EC%A0%9C) - 엄격 모드에서 `delete` 연산은 왜 에러가 발생할까?
   - 엄격 모드에서 `delete` 는 객체의 프로퍼티를 삭제할 때만 사용 가능한 것
     - 예제에선 비정규화된 식별자(변수, 함수, 함수 매개변수 등)를 삭제하려고 했기에 에러가 발생
-- **20.6.1** - 일반 함수의 this가 strict mode가 아닌 경우엔 어떤 값이 바인딩됐는지 리마인드
+- [**20.6.1**](https://github.com/FE-FOREVER/JS-STUDY/blob/main/20.%20strict%20mode/%EC%A1%B0%EB%AF%BC%EC%A7%80.md#2061-%EC%9D%BC%EB%B0%98-%ED%95%A8%EC%88%98%EC%9D%98-this) - 일반 함수의 this가 strict mode가 아닌 경우엔 어떤 값이 바인딩됐는지 리마인드
   - 브라우저에선 window, Node.js에선 global 전역 객체
