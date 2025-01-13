@@ -16,7 +16,7 @@
     - 하위 객체들은 `__proto__` 접근자 프로퍼티를 통해 내부슬롯이 가리키는 프로토타입에 간접적으로 접근 가능
     - 객체가 생성될 때, 객체 생성 방식에 따라 프로토타입이 결정되고 `[[Prototype]]`에 저장됨 *19.6
 
-  ![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6ed1bb57-6799-4eb4-9443-b0ae6a81c22e/9e0726ba-3ccf-4e51-8a84-5e8d2ba890e3/image.png)
+    ![image](https://github.com/user-attachments/assets/aa15f1cc-a923-4429-8249-ad6048442cb6)
 
     - **`__proto__` 접근자 프로퍼티**
         - `__proto__` 는 접근자 프로퍼티
@@ -27,13 +27,13 @@
 
   **⇒ 모든 객체가 가지고있는 `__proto__` 접근자 프로퍼티와, 함수 객체만이 가지고 있는 `prototype` 프로퍼티는 프로퍼티를 사용하는 주체는 다르나, 결국 동일한 프로토타입을 가리킴**
 
-  ![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6ed1bb57-6799-4eb4-9443-b0ae6a81c22e/69bae894-360b-45e5-aa2a-60d4b9fe7c26/image.png)
+    ![image](https://github.com/user-attachments/assets/1974dd93-d951-468f-b0a1-0a4cd9b1d002)
 
     - **프로토타입의 `constructor` 프로퍼티와 생성자 함수**
         - 모든 프로토타입은 `constructor` 프로퍼티 소유
         - 자신을 참조하고 있는 생성자 함수를 가리키며, 이 연결은 생성자 함수가 생성될 때(===함수 객체가 생성될 때) 이뤄짐
 
-  ![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6ed1bb57-6799-4eb4-9443-b0ae6a81c22e/c77602b7-d104-4d6c-b68c-fd03d3d21cdc/image.png)
+![image](https://github.com/user-attachments/assets/58258ad5-a28f-4bb4-949e-2cb7ce498b59)
 
 - **리터럴 표기법에 의해 생성된 객체의 생성자 함수와 프로토타입**
     - 리터럴 표기법에 의해 생성된 객체도 프로토타입이 존재하나, 이 경우 프로토타입의 constructor 프로퍼티가 가리키는 생성자 함수가 반드시 객체를 생성한 생성자 함수라고 단정할 수 없음
@@ -65,7 +65,7 @@
 - **프로토타입 체인**
     - 생성자 함수에 의해 생성된 객체는 생성자 함수의 prototype뿐만 아니라 Object.prototype도 상속 받음
 
-  ![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6ed1bb57-6799-4eb4-9443-b0ae6a81c22e/ed054155-c075-442f-9726-fd314b0dc288/image.png)
+    ![image](https://github.com/user-attachments/assets/6bccb869-5d45-40cc-8338-8f9ee6e8789e)
 
     - 자바스크립트는 객체의 프로퍼티에 접근하려고 할 때 해당 객체에 접근하려는 프로퍼티가 없다면 `[[Prototype]]` 내부 슬롯의 참조를 따라 자신의 부모 역할을 하는 프로퍼티를 순차적으로 검색
     - 프로토타입 체인의 최상위에 위치하는 객체는 언제나 Object.prototype이므로, 모든 객체는 Object.prototype을 상속받음 → 프로토타입 체인의 종점
