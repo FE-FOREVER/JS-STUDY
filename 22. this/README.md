@@ -27,7 +27,7 @@
 
 ## 짚고 넘어가기
 
-- **22.2.2** - 프로토타입 메서드 내부에서 사용된 this 예제에서 me 인스턴스의 name 프로퍼티의 값
+- [**22.2.2**](https://github.com/FE-FOREVER/JS-STUDY/blob/main/22.%20this/%EC%A1%B0%EB%AF%BC%EC%A7%80.md#2222-%EB%A9%94%EC%84%9C%EB%93%9C-%ED%98%B8%EC%B6%9C) - 프로토타입 메서드 내부에서 사용된 this 예제에서 me 인스턴스의 name 프로퍼티의 값
 
   ```jsx
   function Person(name) {
