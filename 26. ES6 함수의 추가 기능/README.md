@@ -16,6 +16,7 @@
 ## 26.2 메서드
 
 - ES6 사양에서 메서드란 메서드 축약 표현으로 정의된 함수만을 의미
+
   ```jsx
   const obj = {
     x: 1,
@@ -32,6 +33,7 @@
   console.log(obj.foo()); // 1
   console.log(obj.bar()); // 1
   ```
+
 - ES6 메서드의 특징
   - 인스턴스를 생성할 수 없는 `non-constructor`
     - 따라서 `prototype` 프로퍼티 X, 프로토타입 생성 X
@@ -95,7 +97,9 @@
     - 함수 자체에서 **this** 바인딩을 갖지 않기 때문이다.
   - [예제 코드와 함께 살펴보기]
 - 메서드(객체 내 프로퍼티에 할당되는 함수)를 정의할 땐 ES6 메서드를 사용하자.
+
   - 화살표 함수가 가리키는 this가 기존 의도인 메서드를 호출한 객체를 가리키지 않기 때문이다.
+
   ```jsx
   const person = {
     name: 'Cho',
@@ -106,8 +110,11 @@
 
   person.sayHi(); // Hi Cho
   ```
+
 - 일반적인 방식으로 프로토타입 객체의 프로퍼티를 동적 추가할 때도 화살표 함수가 아닌 일반 함수를 사용하자.
+
   - 위와 동일하게 this가 가리키는 것이 상이하다.
+
   ```jsx
   function Person(name) {
     this.name = name;
@@ -120,8 +127,11 @@
   const person = new Person('Cho');
   person.sayHi(); // Hi Cho
   ```
+
 - 클래스에서 메서드를 정의할 때 ES6 메서드를 사용하자.
+
   - 클래스 필드 정의 제안 방식으로 화살표 함수를 사용하면 인스턴스 메서드가 된다. ⇒ 프로토타입 메서드가 될 수 있게 ES6 메서드로 사용하자.
+
   ```jsx
   class Person {
     // 클래스 필드 정의
@@ -176,6 +186,7 @@
   - 자바스크립트 엔진의 경우 매개변수의 개수와 인수의 개수를 체크하지 않기 때문
   - 따라서 방어코드 필요 ⇒ 매개변수에 인수가 잘 전달되었는지 확인 & 인수가 전달되지 않은 경우 매개변수에 기본값을 할당하는 과정 필요
 - ES6 이전 방어 코드
+
   ```jsx
   function sum(x, y) {
     // 인수가 전달되지 않아 매개변수의 값이 undefined인 경우 기본값을 할당한다.
@@ -188,8 +199,11 @@
   console.log(sum(1, 2)); // 3
   console.log(sum(1)); // 1
   ```
+
 - ES6 매개변수 기본값 사용
+
   - 인수 체크 및 초기화 간소화 됨
+
   ```jsx
   function sum(x = 0, y = 0) {
     return x + y;
@@ -198,7 +212,26 @@
   console.log(sum(1, 2)); // 3
   console.log(sum(1)); // 1
   ```
+
 - ⚠️ 매개변수 기본값 관련 주의사항
   - 매개변수 기본값은 매개변수에 인수를 전달하지 않는 경우와 **undefined**를 전달한 경우에만 유효 (→ null은 해당하지 않는다.)
   - Rest 파라미터에는 기본값 지정 불가
   - 매개변수 기본값은 함수 객체의 `length` 프로퍼티, `arguments` 객체에 영향을 주지 않음
+
+## 짚고 넘어가기
+
+- [26.3.3 this] - `Array.prototype.map` 말고 인수에 this로 콜백함수 내부에서 사용할 객체를 전달할 수 있는 메서드가 또 있을까?
+
+  - `Array`의 [순회 메서드](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array#%EC%88%9C%ED%9A%8C_%EB%A9%94%EC%84%9C%EB%93%9C)에 속하는 경우 모두 아래와 같은 형태를 가진다.
+    ```jsx
+    method(callbackFn, thisArg);
+    ```
+  - 순회 메서드 종류
+    - [`every()`](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/every),[`filter()`](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/filter),[`find()`](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/find),[`findIndex()`](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex),[`findLast()`](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/findLast),[`findLastIndex()`](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/findLastIndex),[`flatMap()`](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap),[`forEach()`](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach),[`map()`](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/map),[`some()`](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/some)
+  - ✅ 이러한 순회 메서드에서 두 번째 인수인 `thisArg` 에 넘긴 값을 콜백 함수 내부에서 this로 사용한다.
+
+- [26.5 매개변수 기본값] - 기본값이 지정된 매개변수는 왜 매개변수의 개수를 나타내는 함수 객체의 `length` 프로퍼티에 포함되지 않을까?
+  - `Function.prototype.length` → 함수가 기대하는 인자(매개변수)의 개수를 나타낸다.
+    - 여기서 인자의 개수 → 함수 호출 시 필수적으로 전달해야 하는 인수를 의미한다. (⇒ 필수 인자)
+  - 기본값이 정해진 매개변수는 인수가 전달되지 않아도 함수 실행에 문제가 없는 선택적 매개변수이기 때문이다.
+  - ✅ `Function.prototype.length` 는 기본값이 명시되지 않은 매개변수의 개수만을 나타낸다.
